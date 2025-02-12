@@ -6,6 +6,7 @@ Essential Question: How do the different macronutrients influence obesity rates
 Data Sources:
   - https://www.kaggle.com/datasets/muhammadtalhaawan/world-sugar-dataset-2018-2024 (CSV)
   - https://ncdrisc.org/data-downloads-adiposity.html (CSV)
+
 Potential Visualizations:
   - Pie Chart
   - Bar/Line Graphs
