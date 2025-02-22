@@ -91,24 +91,25 @@
 .nameSubmission {
   display: flex;
   flex-direction: row;
+  align-items: center;
   min-width: 300px;
   max-height: 40px;
+  gap: 30px;
   margin: 0 auto;
-  align-items: center;
   justify-content: space-between;
 }
 
 .nameInput {
   height: 33px;
   border: none;
-  border-radius: 15px 0 0 15px;
+  border-radius: 15px;
 }
 
 .startButton {
   min-width: 125px;
   height: 35px;
-  border: none;
-  border-radius: 0 15px 15px 0;
+  border: 2px solid transparent;
+  border-radius: 15px;
   background-color: #e6e6e6;
 }
 

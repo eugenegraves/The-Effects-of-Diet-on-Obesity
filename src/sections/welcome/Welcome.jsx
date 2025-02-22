@@ -32,7 +32,12 @@ function Welcome() {
           ease: "power1.out",
           duration: 0.4,
           backgroundColor: "#111",
-          color: "white",
+          color: "transparent",
+          webkitBackgroundClip: "text",
+          webkitTextFillColor: "transparent",
+          backgroundImage: "linear-gradient(to right, #a2682a 0%, #be8c3c 8%, #be8c3c 18%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #b17b32 77%, #bb8332 83%, #d4a245 88%, #e1b453 93%, #a4692a 100%)",
+          borderImageSource: "linear-gradient(to right, #a2682a 0%, #be8c3c 8%, #be8c3c 18%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #b17b32 77%, #bb8332 83%, #d4a245 88%, #e1b453 93%, #a4692a 100%)",
+          borderImageSlice: 1,
         });
       });
 
@@ -42,10 +47,14 @@ function Welcome() {
           duration: 0.4,
           backgroundColor: "#e6e6e6",
           color: "initial",
+          webkitBackgroundClip: "initial",
+          webkitTextFillColor: "initial",
+          backgroundImage: "none",
+          borderImageSource: "none",
         });
       });
     }
-  });
+  }, []);
 
   return (
     <section className={styles.mainContainer}>
@@ -68,7 +77,7 @@ function Welcome() {
           <input
             className={styles.nameInput}
             type="text"
-            placeholder="Please tell me your name"
+            placeholder="Enter your name"
           />
           <button ref={startRef} className={styles.startButton}>
             I&apos;m Ready
