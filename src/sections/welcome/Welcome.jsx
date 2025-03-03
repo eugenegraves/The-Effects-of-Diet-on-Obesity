@@ -1,9 +1,12 @@
 import styles from "./WelcomeStyles.module.css";
+import "../../WarpEffect.css";
 import sun from "../../assets/white-sun.png";
 import moon from "../../assets/gold-moon.png";
 
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { TypeAnimation } from 'react-type-animation';
+import { useNavigate } from "react-router-dom";
 
 function Welcome() {
   /*Fade In Effect for Title Text*/
@@ -18,6 +21,21 @@ function Welcome() {
       opacity: 1,
       ease: "power1.out",
       delay: 0.5,
+    });
+  }, []);
+
+  /*Fade In Effect for Introduction Container*/
+  const introContainerRef = useRef(null);
+  useEffect(() => {
+    gsap.set(introContainerRef.current, {
+      opacity: 0,
+    });
+
+    gsap.to(introContainerRef.current, {
+      duration: 4,
+      opacity: 1,
+      ease: "power1.out",
+      delay: 4.5,
     });
   }, []);
 
@@ -56,12 +74,34 @@ function Welcome() {
     }
   }, []);
 
+  /* Warp Transition to Discovery Page */
+  const [isWarping, setIsWarping] = useState(false);
+  const navigate = useNavigate();
+  
+  const handleWarpClick = () => {
+    gsap.to(introContainerRef.current, {
+      duration: 1,
+      opacity: 0,
+      ease: "power1.out",
+    });
+    gsap.to(titleRef.current, {
+      duration: 1,
+      opacity: 0,
+      ease: "power1.out",
+    });
+    setIsWarping(true);
+    setTimeout(() => {
+      navigate("/discovery");
+      setIsWarping(false);
+    }, 2500);
+  };
+
   return (
     <section className={styles.mainContainer}>
       <h1 ref={titleRef} className={styles.title}>
         Welcome
       </h1>
-      <section className={styles.introduction}>
+      <section ref={introContainerRef} className={styles.introduction}>
         <h2>
           Thank you for visiting, I&apos;m going to tell you a story about the
           evolution of our nutrition and health environment using some data
@@ -79,9 +119,10 @@ function Welcome() {
             type="text"
             placeholder="Enter your name"
           />
-          <button ref={startRef} className={styles.startButton}>
+          <button ref={startRef} className={styles.startButton} onClick={handleWarpClick} disabled={isWarping}>
             I&apos;m Ready
           </button>
+          {isWarping && <div className="warp-effect"></div>}
         </form>
       </section>
     </section>
