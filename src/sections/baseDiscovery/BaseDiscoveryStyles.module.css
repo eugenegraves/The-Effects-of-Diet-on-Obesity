@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.main {
+    width: 95%;
+    min-width: 500px;
+    background-color: #333;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.dataRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dataElement {
+    border: 1px solid #555;
+    border-radius: 10px;
+}
+
+.initialGraph {
+    width: 64%;
+}
+.otherMedia {
+    width: 35%;
+}
