@@ -81,37 +81,39 @@ const SugarObesityGraph = () => {
     });
 
     return (
-        <div>
-            <h2>Sugar Intake vs Obesity Rates by Country</h2>
-            <ResponsiveContainer width="100%" height={400}>
-                <LineChart data={pivotedData} margin={{ top: 5, right: 50, left: 20, bottom: 10 }}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="year" label={{ value: "Year", position: "insideBottom", offset: -5 }} />
-                    <YAxis yAxisId="obesity" label={{ value: "Obesity Rate (%)", angle: -90, position: "insideLeft" }} />
-                    <YAxis yAxisId="sugar" orientation="right" label={{ value: "Sugar Intake (Tons)", angle: 90, position: "insideRight" }} />
-                    
-                    <Line yAxisId="obesity" type="monotone" dataKey="indiaObesity" stroke="#FF0000" name="India Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="indiaSugar" stroke="#8B0000" name="India Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="chinaObesity" stroke="#FF4500" name="China Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="chinaSugar" stroke="#D2691E" name="China Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="usaObesity" stroke="#FFFF00" name="USA Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="usaSugar" stroke="#DAA520" name="USA Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="indonesiaObesity" stroke="#00FF00" name="Indonesia Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="indonesiaSugar" stroke="#006400" name="Indonesia Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="pakistanObesity" stroke="#00B7EB" name="Pakistan Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="pakistanSugar" stroke="#00008B" name="Pakistan Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="nigeriaObesity" stroke="#FF00FF" name="Nigeria Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="nigeriaSugar" stroke="#4B0082" name="Nigeria Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="brazilObesity" stroke="#FF69B4" name="Brazil Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="brazilSugar" stroke="#C71585" name="Brazil Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="bangladeshObesity" stroke="#A52A2A" name="Bangladesh Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="bangladeshSugar" stroke="#4A2F23" name="Bangladesh Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="russiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="russiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} />
-                    <Line yAxisId="obesity" type="monotone" dataKey="ethiopiaObesity" stroke="#000" name="Russia Obesity" activeDot={{ r: 3 }} />
-                    <Line yAxisId="sugar" type="monotone" dataKey="ethiopiaSugar" stroke="#000" name="Russia Sugar" activeDot={{ r: 3 }} />
-                </LineChart>
-            </ResponsiveContainer>
+        <div style={{ width: "100%", height: "100%" }}>
+            <h2 style={{ textAlign: "center" }}>Sugar Intake vs Obesity Rates by Country</h2>
+            <div style={{ maxWidth: "700px", margin: "40px auto" }}>
+                <ResponsiveContainer width="100%" height={300}>
+                    <LineChart data={pivotedData} margin={{ top: 5, right: 50, left: 20, bottom: 10 }}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="year" label={{ value: "Year", position: "insideBottom", offset: -5 }} />
+                        <YAxis yAxisId="obesity" label={{ value: "Obesity Rate (%)", angle: -90, position: "insideLeft" }} />
+                        <YAxis yAxisId="sugar" orientation="right" label={{ value: "Sugar Intake (Tons)", angle: 90, position: "insideRight" }} />
+                        
+                        <Line yAxisId="obesity" type="monotone" dataKey="indiaObesity" stroke="#FFF" name="India Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="indiaSugar" stroke="#FFF" name="India Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="chinaObesity" stroke="#FFF" name="China Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="chinaSugar" stroke="#FFF" name="China Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="usaObesity" stroke="#FFF" name="USA Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="usaSugar" stroke="#FFF" name="USA Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="indonesiaObesity" stroke="#FFF" name="Indonesia Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="indonesiaSugar" stroke="#FFF" name="Indonesia Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="pakistanObesity" stroke="#FFF" name="Pakistan Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="pakistanSugar" stroke="#FFF" name="Pakistan Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="nigeriaObesity" stroke="#FFF" name="Nigeria Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="nigeriaSugar" stroke="#FFF" name="Nigeria Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="brazilObesity" stroke="#FFF" name="Brazil Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="brazilSugar" stroke="#FFF" name="Brazil Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="bangladeshObesity" stroke="#FFF" name="Bangladesh Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="bangladeshSugar" stroke="#FFF" name="Bangladesh Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="russiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="russiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="ethiopiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="ethiopiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} />
+                    </LineChart>
+                </ResponsiveContainer>
+            </div>
         </div>
     );
 };
