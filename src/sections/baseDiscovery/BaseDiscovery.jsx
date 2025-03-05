@@ -101,6 +101,9 @@ function BaseDiscovery() {
                 isOpen={isPopupOpen} 
                 onClose={() => setIsPopupOpen(false)}
             >
+                <h2>Important Instructions!</h2>
+                <br/>
+                <p>To view each country's obesity percentage & sugar intake use the dropdown filter list below the graph.</p>
             </Popup>
         </>
     );

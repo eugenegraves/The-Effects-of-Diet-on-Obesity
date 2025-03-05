@@ -1,0 +1,41 @@
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.dropdown {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border-image: repeating-linear-gradient(
+        to right,
+        #a2682a 0%,
+        #be8c3c 8%,
+        #be8c3c 18%,
+        #d3b15f 27%,
+        #faf0a0 35%,
+        #ffffc2 40%,
+        #faf0a0 50%,
+        #d3b15f 58%,
+        #be8c3c 67%,
+        #b17b32 77%,
+        #bb8332 83%,
+        #d4a245 88%,
+        #e1b453 93%,
+        #a4692a 100%
+    ) 1;
+}
+
+.dropdown:focus {
+    outline: none;
+}
+
+.dropdown option {
+    background-color: #333;
+    color: white;
+}

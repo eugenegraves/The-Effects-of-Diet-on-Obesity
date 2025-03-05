@@ -1,7 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import styles from "./SugarObesityGraph.module.css";
 
 const SugarObesityGraph = () => {
+    const [ selectedCountry, setSelectedCountry ] = useState("all");
+    
     const data = [
         { year: 2018, country: "India", sugar: 27500, obesity: 6.11 },
         { year: 2019, country: "India", sugar: 27000, obesity: 6.46 },
@@ -80,6 +84,16 @@ const SugarObesityGraph = () => {
         return yearData;
     });
 
+    const countries = ["All Countries", "India", "China", "USA", "Indonesia", "Pakistan", "Nigeria", "Brazil", "Bangladesh", "Russia", "Ethiopia"];
+
+    //Function Responsible for greying out the lines of the unselected countries
+    const lineOpacityHandler = (country) => {
+        if (selectedCountry === "all" || selectedCountry === country.toLowerCase()) {
+            return 1;
+        }
+        return 0.1;
+    };
+
     return (
         <div style={{ width: "100%", height: "100%" }}>
             <h2 style={{ textAlign: "center" }}>Sugar Intake vs Obesity Rates by Country</h2>
@@ -91,28 +105,41 @@ const SugarObesityGraph = () => {
                         <YAxis yAxisId="obesity" label={{ value: "Obesity Rate (%)", angle: -90, position: "insideLeft" }} />
                         <YAxis yAxisId="sugar" orientation="right" label={{ value: "Sugar Intake (Tons)", angle: 90, position: "insideRight" }} />
                         
-                        <Line yAxisId="obesity" type="monotone" dataKey="indiaObesity" stroke="#FFF" name="India Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="indiaSugar" stroke="#FFF" name="India Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="chinaObesity" stroke="#FFF" name="China Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="chinaSugar" stroke="#FFF" name="China Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="usaObesity" stroke="#FFF" name="USA Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="usaSugar" stroke="#FFF" name="USA Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="indonesiaObesity" stroke="#FFF" name="Indonesia Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="indonesiaSugar" stroke="#FFF" name="Indonesia Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="pakistanObesity" stroke="#FFF" name="Pakistan Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="pakistanSugar" stroke="#FFF" name="Pakistan Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="nigeriaObesity" stroke="#FFF" name="Nigeria Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="nigeriaSugar" stroke="#FFF" name="Nigeria Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="brazilObesity" stroke="#FFF" name="Brazil Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="brazilSugar" stroke="#FFF" name="Brazil Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="bangladeshObesity" stroke="#FFF" name="Bangladesh Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="bangladeshSugar" stroke="#FFF" name="Bangladesh Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="russiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="russiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="ethiopiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} />
-                        <Line yAxisId="sugar" type="monotone" dataKey="ethiopiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="indiaObesity" stroke="#FFF" name="India Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("india")} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="indiaSugar" stroke="#FFF" name="India Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("india")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="chinaObesity" stroke="#FFF" name="China Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("china")} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="chinaSugar" stroke="#FFF" name="China Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("china")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="usaObesity" stroke="#FFF" name="USA Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("usa")} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="usaSugar" stroke="#FFF" name="USA Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("usa")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="indonesiaObesity" stroke="#FFF" name="Indonesia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("indonesia")} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="indonesiaSugar" stroke="#FFF" name="Indonesia Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("indonesia")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="pakistanObesity" stroke="#FFF" name="Pakistan Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("pakistan")} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="pakistanSugar" stroke="#FFF" name="Pakistan Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("pakistan")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="nigeriaObesity" stroke="#FFF" name="Nigeria Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("nigeria")} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="nigeriaSugar" stroke="#FFF" name="Nigeria Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("nigeria")}/>
+                        <Line yAxisId="obesity" type="monotone" dataKey="brazilObesity" stroke="#FFF" name="Brazil Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("brazil")} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="brazilSugar" stroke="#FFF" name="Brazil Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("brazil")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="bangladeshObesity" stroke="#FFF" name="Bangladesh Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("bangladesh")} />
+                        <Line yAxisId="sugar" type="monotone" dataKey="bangladeshSugar" stroke="#FFF" name="Bangladesh Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("bangladesh")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="russiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("russia")}/>
+                        <Line yAxisId="sugar" type="monotone" dataKey="russiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("russia")}/>
+                        <Line yAxisId="obesity" type="monotone" dataKey="ethiopiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("ethiopia")}/>
+                        <Line yAxisId="sugar" type="monotone" dataKey="ethiopiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("ethiopia")}/>
                     </LineChart>
                 </ResponsiveContainer>
+            </div>
+            <div className={styles.filterContainer}>
+                <select 
+                    value={selectedCountry} 
+                    onChange={(e) => setSelectedCountry(e.target.value)}
+                    className={styles.dropdown}
+                >
+                    {countries.map((country) => (
+                        <option key={country} value={country === "All Countries" ? "all" : country.toLowerCase()}>
+                            {country}
+                        </option>
+                    ))}
+                </select>
             </div>
         </div>
     );
