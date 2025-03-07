@@ -109,8 +109,8 @@ const SugarObesityGraph = () => {
         <div style={{ width: "100%", height: "100%" }}>
             <h2 style={{ textAlign: "center" }}>Sugar Intake vs Obesity Rates by Country</h2>
             <div style={{ maxWidth: "700px", margin: "40px auto" }}>
-                <ResponsiveContainer width="100%" height={300}>
-                    <LineChart data={pivotedData} margin={{ top: 5, right: 50, left: 20, bottom: 10 }}>
+                <ResponsiveContainer className={styles.graphElement} width="100%" height={300}>
+                    <LineChart  data={pivotedData} margin={{ top: 5, right: 50, left: 20, bottom: 10 }}>
                         <defs>
                             <linearGradient id="obesityGradient" x1="0" y1="0" x2="1" y2="0">
                                 <stop offset="0%" stopColor="#FFD700" />

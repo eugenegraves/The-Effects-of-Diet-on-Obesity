@@ -64,6 +64,37 @@ function BaseDiscovery() {
         setIsPopupOpen(true);
     };
 
+    const [partTwoAnimation, setPartTwoAnimation] = useState(false);
+    const story1Ref = useRef(null);
+
+    const handlePopupTrigger = () => {
+        setIsPopupOpen(false);
+        
+        gsap.set(story1Ref.current, {
+            opacity: 0,
+            y: 50,
+        });
+        
+        setTimeout(() => {
+            setPartTwoAnimation(true);
+
+            requestAnimationFrame(() => {
+                gsap.fromTo(story1Ref.current, 
+                    {
+                        opacity: 0,
+                        y: 50
+                    },
+                    {
+                    duration: 4,
+                    opacity: 1,
+                    y: 0,
+                    ease: "power1.out"
+                    }
+                );
+            });
+        }, 500);
+    };
+
     return (
         <>
             <main className={styles.main}>
@@ -96,10 +127,23 @@ function BaseDiscovery() {
                         />
                     </div>
                 </div>
+                {partTwoAnimation && (
+                    <div ref={story1Ref} className={`${styles.dataRow} ${styles.dataElement}`}>
+                        <div className="styles.transitionText">
+                            <p>What I found was that there is a clear correlation between sugar consumption and obesity rates. . .</p>
+                            <br/><br/>
+                            <p>However upon further inspection, I found that the correlation is not as clear cut as I originally thought. The correlation was straightforward with 3 countries (USA, India & Pakistan) but with the others there were weird pattern breaks that suggest the influence of other factors when it comes to the prevlence of obesity.</p>
+                        </div>
+                    </div>
+                )}
+                <div className={styles.dataRow}>
+                    <div className={styles.dataElement}></div>
+                    <div className={styles.dataElement}></div>
+                </div>
             </main>
             <Popup 
                 isOpen={isPopupOpen} 
-                onClose={() => setIsPopupOpen(false)}
+                onClose={handlePopupTrigger}
             >
                 <h2>Important Instructions!</h2>
                 <br/>
