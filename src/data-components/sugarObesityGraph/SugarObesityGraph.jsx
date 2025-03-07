@@ -94,37 +94,57 @@ const SugarObesityGraph = () => {
         return 0.1;
     };
 
+    //Function Responsible for highlighting the obesity line gold of the active country
+    const lineColorHandler = (country, type) => {
+        if (selectedCountry === "all" || selectedCountry === country.toLowerCase()) {
+            if (type === "obesity") {
+                return "url(#obesityGradient)";
+            }
+            return "#FFF";
+        }
+        return "#FFF";
+    }
+
     return (
         <div style={{ width: "100%", height: "100%" }}>
             <h2 style={{ textAlign: "center" }}>Sugar Intake vs Obesity Rates by Country</h2>
             <div style={{ maxWidth: "700px", margin: "40px auto" }}>
                 <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={pivotedData} margin={{ top: 5, right: 50, left: 20, bottom: 10 }}>
+                        <defs>
+                            <linearGradient id="obesityGradient" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stopColor="#FFD700" />
+                                <stop offset="100%" stopColor="#FFA500" />
+                            </linearGradient>
+                        </defs>
+
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="year" label={{ value: "Year", position: "insideBottom", offset: -5 }} />
-                        <YAxis yAxisId="obesity" label={{ value: "Obesity Rate (%)", angle: -90, position: "insideLeft" }} />
-                        <YAxis yAxisId="sugar" orientation="right" label={{ value: "Sugar Intake (Tons)", angle: 90, position: "insideRight" }} />
+                        <YAxis yAxisId="obesity" label={{ value: "Obesity Rate (%)", angle: -90, position: "insideLeft", style: { fill: "#FFD700" } }} />
+                        <YAxis yAxisId="sugar" orientation="right" label={{ value: "Sugar Intake (Tons)", angle: 90, position: "insideRight", style: { fill: "#FFF" } }} />
                         
-                        <Line yAxisId="obesity" type="monotone" dataKey="indiaObesity" stroke="#FFF" name="India Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("india")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="indiaObesity" stroke={lineColorHandler("india", "obesity")} name="India Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("india")} />
                         <Line yAxisId="sugar" type="monotone" dataKey="indiaSugar" stroke="#FFF" name="India Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("india")} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="chinaObesity" stroke="#FFF" name="China Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("china")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="chinaObesity" stroke={lineColorHandler("china", "obesity")} name="China Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("china")} />
                         <Line yAxisId="sugar" type="monotone" dataKey="chinaSugar" stroke="#FFF" name="China Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("china")} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="usaObesity" stroke="#FFF" name="USA Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("usa")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="usaObesity" stroke={lineColorHandler("usa", "obesity")} name="USA Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("usa")} />
                         <Line yAxisId="sugar" type="monotone" dataKey="usaSugar" stroke="#FFF" name="USA Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("usa")} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="indonesiaObesity" stroke="#FFF" name="Indonesia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("indonesia")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="indonesiaObesity" stroke={lineColorHandler("indonesia", "obesity")} name="Indonesia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("indonesia")} />
                         <Line yAxisId="sugar" type="monotone" dataKey="indonesiaSugar" stroke="#FFF" name="Indonesia Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("indonesia")} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="pakistanObesity" stroke="#FFF" name="Pakistan Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("pakistan")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="pakistanObesity" stroke={lineColorHandler("pakistan", "obesity")} name="Pakistan Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("pakistan")} />
                         <Line yAxisId="sugar" type="monotone" dataKey="pakistanSugar" stroke="#FFF" name="Pakistan Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("pakistan")} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="nigeriaObesity" stroke="#FFF" name="Nigeria Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("nigeria")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="nigeriaObesity" stroke={lineColorHandler("nigeria", "obesity")} name="Nigeria Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("nigeria")} />
                         <Line yAxisId="sugar" type="monotone" dataKey="nigeriaSugar" stroke="#FFF" name="Nigeria Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("nigeria")}/>
-                        <Line yAxisId="obesity" type="monotone" dataKey="brazilObesity" stroke="#FFF" name="Brazil Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("brazil")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="brazilObesity" stroke={lineColorHandler("brazil", "obesity")} name="Brazil Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("brazil")} />
                         <Line yAxisId="sugar" type="monotone" dataKey="brazilSugar" stroke="#FFF" name="Brazil Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("brazil")} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="bangladeshObesity" stroke="#FFF" name="Bangladesh Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("bangladesh")} />
+                        <Line yAxisId="obesity" type="monotone" dataKey="bangladeshObesity" stroke={lineColorHandler("bangladesh", "obesity")} name="Bangladesh Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("bangladesh")} />
                         <Line yAxisId="sugar" type="monotone" dataKey="bangladeshSugar" stroke="#FFF" name="Bangladesh Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("bangladesh")} />
-                        <Line yAxisId="obesity" type="monotone" dataKey="russiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("russia")}/>
+                        <Line yAxisId="obesity" type="monotone" dataKey="russiaObesity" stroke={lineColorHandler("russia", "obesity")} name="Russia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("russia")}/>
                         <Line yAxisId="sugar" type="monotone" dataKey="russiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("russia")}/>
-                        <Line yAxisId="obesity" type="monotone" dataKey="ethiopiaObesity" stroke="#FFF" name="Russia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("ethiopia")}/>
+                        <Line yAxisId="obesity" type="monotone" dataKey="ethiopiaObesity" stroke={lineColorHandler("ethiopia", "obesity")} name="Russia Obesity" activeDot={{ r: 3 }} opacity={lineOpacityHandler("ethiopia")}/>
                         <Line yAxisId="sugar" type="monotone" dataKey="ethiopiaSugar" stroke="#FFF" name="Russia Sugar" activeDot={{ r: 3 }} opacity={lineOpacityHandler("ethiopia")}/>
+                    
+                        <Tooltip content={<CustomTooltip selectedCountry={selectedCountry} />} />
                     </LineChart>
                 </ResponsiveContainer>
             </div>
@@ -141,6 +161,24 @@ const SugarObesityGraph = () => {
                     ))}
                 </select>
             </div>
+        </div>
+    );
+};
+
+const CustomTooltip = ({ active, payload, label, selectedCountry }) => {
+    if (!active || !payload || !payload.length || selectedCountry === "all") {
+        return null;
+    }
+
+    const countryName = selectedCountry.charAt(0).toUpperCase() + selectedCountry.slice(1);
+    const obesityValue = payload.find(p => p.dataKey === `${selectedCountry}Obesity`)?.value;
+    const sugarValue = payload.find(p => p.dataKey === `${selectedCountry}Sugar`)?.value;
+
+    return (
+        <div className={styles.tooltip}>
+            <p>{`Year: ${label}`}</p>
+            <p style={{ color: "#FFD700" }}>{`${countryName} Obesity: ${obesityValue}%`}</p>
+            <p style={{ color: "#FFFFFF" }}>{`${countryName} Sugar: ${sugarValue} tons`}</p>
         </div>
     );
 };
