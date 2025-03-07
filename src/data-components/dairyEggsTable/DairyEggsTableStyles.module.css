@@ -1,0 +1,34 @@
+.headerStyle {
+    padding: 12px;
+    background-color: #333;
+    color: #FFD700;
+    border-bottom: 2px solid #FFD700;
+    text-align: left;
+}
+
+.cellStyle {
+    padding: '8px';
+    border-bottom: 1px solid #555;
+    color: #FFF;
+}
+
+.dairyEggTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+.dairyEggTable th:first-child,
+.dairyEggTable td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #333;
+    z-index: 1;
+}
+
+.dairyEggTable td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, use } from "react";
 import styles from "./baseDiscoveryStyles.module.css";
 import SugarObesityGraph from "../../data-components/sugarObesityGraph/SugarObesityGraph";
+import DairyEggsTable from "../../data-components/dairyEggsTable/DairyEggsTable";
 import Popup from "../../accessory-components/popup/Popup";
 import { TypeAnimation } from 'react-type-animation';
 import gsap from "gsap";
@@ -138,7 +139,9 @@ function BaseDiscovery() {
                 )}
                 <div className={styles.dataRow}>
                     <div className={styles.dataElement}></div>
-                    <div className={styles.dataElement}></div>
+                    <div className={styles.dataElement}>
+                        <DairyEggsTable></DairyEggsTable>
+                    </div>
                 </div>
             </main>
             <Popup 
