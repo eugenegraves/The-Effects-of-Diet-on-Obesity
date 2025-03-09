@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ResponsiveContainer } from "recharts";
 import styles from "./dairyEggsTableStyles.module.css";
 
@@ -106,14 +106,52 @@ const DairyEggsTable = () => {
         { key: 'absoluteChange', header: 'Absolute Change (kcal)' }
     ];
 
+    const [sortDirection, setSortDirection] = useState({
+        key: null,
+        direction: 'asc'
+    });
+
+    const handleSort = (key) => {
+        let direction = 'asc';
+        if (sortDirection.key === key && sortDirection.direction === 'asc') {
+            direction = 'desc';
+        }
+        setSortDirection({ key, direction });
+    }
+
+    const sortedData = React.useMemo(() => {
+        if (!sortDirection.key) {
+            return data;
+        }
+
+        return [...data].sort((a, b) => {
+            if (a[sortDirection.key] < b[sortDirection.key]) {
+                return sortDirection.direction === 'asc' ? -1 : 1;
+            }
+            if (a[sortDirection.key] > b[sortDirection.key]) {
+                return sortDirection.direction === 'asc' ? 1 : -1;
+            }
+            return 0;
+        });
+    }, [data, sortDirection]);
+
+    const sortArrow = ({ column }) => {
+        if (sortDirection.key !== column) return <span className={styles.sortIcon}>↕</span>;
+
+        return <span className={styles.sortIcon}>
+            {sortDirection.direction === 'asc' ? '↑' : '↓'}
+        </span>
+    };
+
     return (
         <ResponsiveContainer width="100" height={400}>
             <table className={styles.dairyEggTable}>
                 <thead>
                     <tr>
                         {columns.map((col) => (
-                            <th key={col.key} className={styles.headerStyle}>
+                            <th key={col.key} className={styles.headerStyle} onClick={() => handleSort(col.key)} style={{ cursor: 'pointer' }}>
                                 {col.header}
+                                {sortArrow({ column: col.key })}
                             </th>
                         ))}
                     </tr>
