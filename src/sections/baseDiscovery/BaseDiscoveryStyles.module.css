@@ -64,6 +64,9 @@
 .transitionText {
     padding: 30px;
     margin-top: 50px;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
 }
 
 
@@ -72,4 +75,17 @@
         display: flex;
         flex-direction: column;
     }   
+}
+
+.descriptorText {
+    color: white;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+.graphDescriptor {
+    margin-right: 1%;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
 }

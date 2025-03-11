@@ -66,6 +66,7 @@ function BaseDiscovery() {
     };
 
     const [partTwoAnimation, setPartTwoAnimation] = useState(false);
+    const [showDescriptor, setShowDescriptor] = useState(false);
     const story1Ref = useRef(null);
 
     const handlePopupTrigger = () => {
@@ -86,10 +87,15 @@ function BaseDiscovery() {
                         y: 50
                     },
                     {
-                    duration: 4,
-                    opacity: 1,
-                    y: 0,
-                    ease: "power1.out"
+                        duration: 4,
+                        opacity: 1,
+                        y: 0,
+                        ease: "power1.out",
+                        onComplete: () => {
+                            setTimeout(() => {
+                                setShowDescriptor(true);
+                            }, 1000);
+                        }
                     }
                 );
             });
@@ -138,7 +144,20 @@ function BaseDiscovery() {
                     </div>
                 )}
                 <div className={`${styles.dataRow} ${styles.responsiveCell}`}>
-                    <div className={styles.dataElement}></div>
+                    <div className={`${styles.dataElement} ${styles.graphDescriptor}`}>
+                        {showDescriptor && (
+                            <TypeAnimation 
+                            className={styles.descriptorText} 
+                                sequence={[
+                                    'In the following table, you can see the average daily intake of dairy and eggs in the same countries that were previously mentioned.',
+                                    1000,
+                                    'In the following table, you can see the average daily intake of dairy and eggs in the same countries that were previously mentioned. Zooming in on this subset of nutrition data showed me some surprising correlations. \n\nFor example, the countries with the highest obesity rates also have the highest dairy and egg consumption.',
+                                ]}
+                                cursor={false}
+                                speed={65}
+                            />
+                        )}
+                    </div>
                     <div className={styles.dataElement}>
                         <DairyEggsTable></DairyEggsTable>
                     </div>
