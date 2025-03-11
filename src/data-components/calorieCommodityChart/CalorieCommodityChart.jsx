@@ -265,19 +265,254 @@ const CalorieComodityChart = () => {
             ]
         },
         Brazil: {
-
+            2018: [
+                { name: 'Alcohol', value: 89 },
+                { name: 'Sugar', value: 437 },
+                { name: 'Oils & Fats', value: 638 },
+                { name: 'Meat', value: 452 },
+                { name: 'Dairy & Eggs', value: 309 },
+                { name: 'Fruits & Vegetables', value: 165 },
+                { name: 'Starchy Roots', value: 127 },
+                { name: 'Pulses', value: 117 },
+                { name: 'Cereals & Grains', value: 915 },
+                { name: 'Other', value: 26 }
+            ],
+            2019: [
+                { name: 'Alcohol', value: 106 },
+                { name: 'Sugar', value: 431 },
+                { name: 'Oils & Fats', value: 688 },
+                { name: 'Meat', value: 448 },
+                { name: 'Dairy & Eggs', value: 326 },
+                { name: 'Fruits & Vegetables', value: 161 },
+                { name: 'Starchy Roots', value: 126 },
+                { name: 'Pulses', value: 112 },
+                { name: 'Cereals & Grains', value: 861 },
+                { name: 'Other', value: 24 }
+            ],
+            2020: [
+                { name: 'Alcohol', value: 91 },
+                { name: 'Sugar', value: 377 },
+                { name: 'Oils & Fats', value: 710 },
+                { name: 'Meat', value: 446 },
+                { name: 'Dairy & Eggs', value: 330 },
+                { name: 'Fruits & Vegetables', value: 161 },
+                { name: 'Starchy Roots', value: 129 },
+                { name: 'Pulses', value: 114 },
+                { name: 'Cereals & Grains', value: 868 },
+                { name: 'Other', value: 25 }
+            ],
+            2021: [
+                { name: 'Alcohol', value: 96 },
+                { name: 'Sugar', value: 377 },
+                { name: 'Oils & Fats', value: 736 },
+                { name: 'Meat', value: 438 },
+                { name: 'Dairy & Eggs', value: 326 },
+                { name: 'Fruits & Vegetables', value: 160 },
+                { name: 'Starchy Roots', value: 128 },
+                { name: 'Pulses', value: 107 },
+                { name: 'Cereals & Grains', value: 908 },
+                { name: 'Other', value: 24 }
+            ]
         },
         Nigeria: {
-
+            2018: [
+                { name: 'Alcohol', value: 15 },
+                { name: 'Sugar', value: 106 },
+                { name: 'Oils & Fats', value: 430 },
+                { name: 'Meat', value: 53 },
+                { name: 'Dairy & Eggs', value: 20 },
+                { name: 'Fruits & Vegetables', value: 136 },
+                { name: 'Starchy Roots', value: 628 },
+                { name: 'Pulses', value: 95 },
+                { name: 'Cereals & Grains', value: 1036 },
+                { name: 'Other', value: 12 }
+            ],
+            2019: [
+                { name: 'Alcohol', value: 15 },
+                { name: 'Sugar', value: 105 },
+                { name: 'Oils & Fats', value: 424 },
+                { name: 'Meat', value: 52 },
+                { name: 'Dairy & Eggs', value: 19 },
+                { name: 'Fruits & Vegetables', value: 131 },
+                { name: 'Starchy Roots', value: 650 },
+                { name: 'Pulses', value: 96 },
+                { name: 'Cereals & Grains', value: 1029 },
+                { name: 'Other', value: 20 }
+            ],
+            2020: [
+                { name: 'Alcohol', value: 16 },
+                { name: 'Sugar', value: 89 },
+                { name: 'Oils & Fats', value: 429 },
+                { name: 'Meat', value: 51 },
+                { name: 'Dairy & Eggs', value: 20 },
+                { name: 'Fruits & Vegetables', value: 130 },
+                { name: 'Starchy Roots', value: 635 },
+                { name: 'Pulses', value: 102 },
+                { name: 'Cereals & Grains', value: 1015 },
+                { name: 'Other', value: 22 }
+            ],
+            2021: [
+                { name: 'Alcohol', value: 17 },
+                { name: 'Sugar', value: 100 },
+                { name: 'Oils & Fats', value: 421 },
+                { name: 'Meat', value: 50 },
+                { name: 'Dairy & Eggs', value: 21 },
+                { name: 'Fruits & Vegetables', value: 127 },
+                { name: 'Starchy Roots', value: 636 },
+                { name: 'Pulses', value: 97 },
+                { name: 'Cereals & Grains', value: 1014 },
+                { name: 'Other', value: 21 }
+            ]
         },
         Bangladesh: {
-
+            2018: [
+                { name: 'Alcohol', value: 0 },
+                { name: 'Sugar', value: 78 },
+                { name: 'Oils & Fats', value: 201 },
+                { name: 'Meat', value: 71 },
+                { name: 'Dairy & Eggs', value: 54 },
+                { name: 'Fruits & Vegetables', value: 73 },
+                { name: 'Starchy Roots', value: 94 },
+                { name: 'Pulses', value: 61 },
+                { name: 'Cereals & Grains', value: 1909 },
+                { name: 'Other', value: 24 }
+            ],
+            2019: [
+                { name: 'Alcohol', value: 0 },
+                { name: 'Sugar', value: 79 },
+                { name: 'Oils & Fats', value: 203 },
+                { name: 'Meat', value: 72 },
+                { name: 'Dairy & Eggs', value: 52 },
+                { name: 'Fruits & Vegetables', value: 76 },
+                { name: 'Starchy Roots', value: 92 },
+                { name: 'Pulses', value: 72 },
+                { name: 'Cereals & Grains', value: 1839 },
+                { name: 'Other', value: 27 }
+            ],
+            2020: [
+                { name: 'Alcohol', value: 0 },
+                { name: 'Sugar', value: 82 },
+                { name: 'Oils & Fats', value: 193 },
+                { name: 'Meat', value: 71 },
+                { name: 'Dairy & Eggs', value: 53 },
+                { name: 'Fruits & Vegetables', value: 84 },
+                { name: 'Starchy Roots', value: 89 },
+                { name: 'Pulses', value: 81 },
+                { name: 'Cereals & Grains', value: 1879 },
+                { name: 'Other', value: 39 }
+            ],
+            2021: [
+                { name: 'Alcohol', value: 0 },
+                { name: 'Sugar', value: 83 },
+                { name: 'Oils & Fats', value: 204 },
+                { name: 'Meat', value: 70 },
+                { name: 'Dairy & Eggs', value: 55 },
+                { name: 'Fruits & Vegetables', value: 94 },
+                { name: 'Starchy Roots', value: 91 },
+                { name: 'Pulses', value: 84 },
+                { name: 'Cereals & Grains', value: 1889 },
+                { name: 'Other', value: 42 }
+            ]
         },
         Russia: {
-
+            2018: [
+                { name: 'Alcohol', value: 139 },
+                { name: 'Sugar', value: 425 },
+                { name: 'Oils & Fats', value: 544 },
+                { name: 'Meat', value: 368 },
+                { name: 'Dairy & Eggs', value: 352 },
+                { name: 'Fruits & Vegetables', value: 169 },
+                { name: 'Starchy Roots', value: 168 },
+                { name: 'Pulses', value: 23 },
+                { name: 'Cereals & Grains', value: 1131 },
+                { name: 'Other', value: 35 }
+            ],
+            2019: [
+                { name: 'Alcohol', value: 146 },
+                { name: 'Sugar', value: 406 },
+                { name: 'Oils & Fats', value: 541 },
+                { name: 'Meat', value: 372 },
+                { name: 'Dairy & Eggs', value: 346 },
+                { name: 'Fruits & Vegetables', value: 168 },
+                { name: 'Starchy Roots', value: 159 },
+                { name: 'Pulses', value: 21 },
+                { name: 'Cereals & Grains', value: 1155 },
+                { name: 'Other', value: 35 }
+            ],
+            2020: [
+                { name: 'Alcohol', value: 144 },
+                { name: 'Sugar', value: 394 },
+                { name: 'Oils & Fats', value: 525 },
+                { name: 'Meat', value: 375 },
+                { name: 'Dairy & Eggs', value: 356 },
+                { name: 'Fruits & Vegetables', value: 164 },
+                { name: 'Starchy Roots', value: 155 },
+                { name: 'Pulses', value: 25 },
+                { name: 'Cereals & Grains', value: 1199 },
+                { name: 'Other', value: 32 }
+            ],
+            2021: [
+                { name: 'Alcohol', value: 147 },
+                { name: 'Sugar', value: 383 },
+                { name: 'Oils & Fats', value: 533 },
+                { name: 'Meat', value: 378 },
+                { name: 'Dairy & Eggs', value: 358 },
+                { name: 'Fruits & Vegetables', value: 168 },
+                { name: 'Starchy Roots', value: 151 },
+                { name: 'Pulses', value: 26 },
+                { name: 'Cereals & Grains', value: 1203 },
+                { name: 'Other', value: 34 }
+            ]
         },
         Ethiopia: {
-
+            2018: [
+                { name: 'Alcohol', value: 25 },
+                { name: 'Sugar', value: 95 },
+                { name: 'Oils & Fats', value: 149 },
+                { name: 'Meat', value: 33 },
+                { name: 'Dairy & Eggs', value: 57 },
+                { name: 'Fruits & Vegetables', value: 29 },
+                { name: 'Starchy Roots', value: 66 },
+                { name: 'Pulses', value: 191 },
+                { name: 'Cereals & Grains', value: 1752 },
+                { name: 'Other', value: 53 }
+            ],
+            2019: [
+                { name: 'Alcohol', value: 25 },
+                { name: 'Sugar', value: 65 },
+                { name: 'Oils & Fats', value: 90 },
+                { name: 'Meat', value: 35 },
+                { name: 'Dairy & Eggs', value: 65 },
+                { name: 'Fruits & Vegetables', value: 27 },
+                { name: 'Starchy Roots', value: 69 },
+                { name: 'Pulses', value: 183 },
+                { name: 'Cereals & Grains', value: 1803 },
+                { name: 'Other', value: 47 }
+            ],
+            2020: [
+                { name: 'Alcohol', value: 21 },
+                { name: 'Sugar', value: 76 },
+                { name: 'Oils & Fats', value: 169 },
+                { name: 'Meat', value: 37 },
+                { name: 'Dairy & Eggs', value: 76 },
+                { name: 'Fruits & Vegetables', value: 36 },
+                { name: 'Starchy Roots', value: 77 },
+                { name: 'Pulses', value: 201 },
+                { name: 'Cereals & Grains', value: 1714 },
+                { name: 'Other', value: 48 }
+            ],
+            2021: [
+                { name: 'Alcohol', value: 17 },
+                { name: 'Sugar', value: 80 },
+                { name: 'Oils & Fats', value: 245 },
+                { name: 'Meat', value: 36 },
+                { name: 'Dairy & Eggs', value: 64 },
+                { name: 'Fruits & Vegetables', value: 31 },
+                { name: 'Starchy Roots', value: 74 },
+                { name: 'Pulses', value: 207 },
+                { name: 'Cereals & Grains', value: 1670 },
+                { name: 'Other', value: 45 }
+            ]
         },
     };
 
