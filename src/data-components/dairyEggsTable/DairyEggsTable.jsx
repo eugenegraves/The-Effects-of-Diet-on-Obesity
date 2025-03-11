@@ -102,8 +102,25 @@ const DairyEggsTable = () => {
         { key: '2019', header: '2019' },
         { key: '2020', header: '2020' },
         { key: '2021', header: '2021' },
-        { key: 'relativeChange', header: 'Relative Change (%)' },
-        { key: 'absoluteChange', header: 'Absolute Change (kcal)' }
+        { 
+            key: 'relativeChange', header: (
+                <>
+                    Relative<br/>
+                    Change<br/>
+                    (%)
+                </>
+            ) 
+        },
+        { 
+            key: 'absoluteChange', 
+            header: (
+                <>
+                    Absolute<br/>
+                    Change<br/>
+                    (kcal)
+                </>
+            ) 
+        }
     ];
 
     const [sortDirection, setSortDirection] = useState({
@@ -157,7 +174,7 @@ const DairyEggsTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((row, index) => (
+                    {sortedData.map((row, index) => (
                         <tr key={index}>
                             {columns.map((col) => (
                                 <td key={col.key} className={styles.cellStyle}>

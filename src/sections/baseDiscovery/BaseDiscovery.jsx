@@ -137,7 +137,7 @@ function BaseDiscovery() {
                         </div>
                     </div>
                 )}
-                <div className={styles.dataRow}>
+                <div className={`${styles.dataRow} ${styles.responsiveCell}`}>
                     <div className={styles.dataElement}></div>
                     <div className={styles.dataElement}>
                         <DairyEggsTable></DairyEggsTable>

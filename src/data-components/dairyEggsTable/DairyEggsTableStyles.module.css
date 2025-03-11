@@ -17,6 +17,7 @@
     border-collapse: collapse;
     background-color: #333;
     border: 1px solid #555;
+    font-size: 14px;
 }
 
 .dairyEggTable th:first-child,
