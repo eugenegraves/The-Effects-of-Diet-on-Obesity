@@ -162,7 +162,7 @@ function BaseDiscovery() {
                     <div className={styles.dataElement}>
                         <DairyEggsTable></DairyEggsTable>
                     </div>
-                </div>d*/}
+                </div>*/}
             </main>
             <Popup 
                 isOpen={isPopupOpen} 
