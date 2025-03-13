@@ -5,7 +5,7 @@ import BaseDiscovery from "./sections/baseDiscovery/BaseDiscovery"
 
 function App() {
   return (
-    <Router>
+    <Router basename="/The-Effects-of-Diet-on-Obesity">
       <Routes>
         <Route path="/" element={<Welcome/>} />
         <Route path="/discovery" element={<BaseDiscovery/>} />
