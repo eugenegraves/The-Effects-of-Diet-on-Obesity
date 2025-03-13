@@ -143,6 +143,7 @@ function BaseDiscovery() {
                         </div>
                     </div>
                 )}
+                {/*}
                 <div className={`${styles.dataRow} ${styles.responsiveCell}`}>
                     <div className={`${styles.dataElement} ${styles.graphDescriptor}`}>
                         {showDescriptor && (
@@ -161,7 +162,7 @@ function BaseDiscovery() {
                     <div className={styles.dataElement}>
                         <DairyEggsTable></DairyEggsTable>
                     </div>
-                </div>
+                </div>*/}
             </main>
             <Popup 
                 isOpen={isPopupOpen} 
