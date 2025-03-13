@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, use } from "react";
-import styles from "./baseDiscoveryStyles.module.css";
+import styles from "./BaseDiscoveryStyles.module.css";
 import SugarObesityGraph from "../../data-components/sugarObesityGraph/SugarObesityGraph";
 import DairyEggsTable from "../../data-components/dairyEggsTable/DairyEggsTable";
 import Popup from "../../accessory-components/popup/Popup";
