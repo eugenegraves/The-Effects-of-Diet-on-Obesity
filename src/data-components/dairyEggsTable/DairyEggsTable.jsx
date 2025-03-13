@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ResponsiveContainer } from "recharts";
-import styles from "./dairyEggsTableStyles.module.css";
+import styles from "./DairyEggsTableStyles.module.css";
 
 const DairyEggsTable = () => {
     const data = [
