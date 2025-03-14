@@ -549,7 +549,7 @@ const CalorieComodityChart = () => {
                 </select>
                 <select 
                     value={currentYear}
-                    onChange={(e) => setSelectedYear(e.target.value)}
+                    onChange={(e) => setCurrentYear(e.target.value)}
                     className={styles.yearSelector}
                 >
                     {years.map(year => (
