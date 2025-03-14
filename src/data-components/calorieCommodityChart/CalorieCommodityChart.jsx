@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
-import styles from "./calorieCommodityChartStyles.module.css";
+import styles from "./CalorieCommodityChartStyles.module.css";
 
 const CalorieComodityChart = () => {
     const [currentCountry, setCurrentCountry] = useState("USA");
