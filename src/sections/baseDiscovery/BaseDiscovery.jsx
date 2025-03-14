@@ -2,6 +2,7 @@ import { useRef, useEffect, useState, use } from "react";
 import styles from "./BaseDiscoveryStyles.module.css";
 import SugarObesityGraph from "../../data-components/sugarObesityGraph/SugarObesityGraph";
 import DairyEggsTable from "../../data-components/dairyEggsTable/DairyEggsTable";
+import CalorieComodityChart from "../../data-components/calorieCommodityChart/CalorieCommodityChart";
 import Popup from "../../accessory-components/popup/Popup";
 import { TypeAnimation } from 'react-type-animation';
 import gsap from "gsap";
@@ -16,11 +17,11 @@ function BaseDiscovery() {
             display: "none",
         });
         gsap.to(thesisRef.current, {
-            duration: 4,
+            duration: 2,
             opacity: 1,
             y: 0,
             ease: "power1.out",
-            delay: 2.5,
+            delay: 1,
             display: "block",
         });
     }, []);
@@ -33,11 +34,11 @@ function BaseDiscovery() {
             display: "none",
         });
         gsap.to(initialGraphRef.current, {
-            duration: 4,
+            duration: 2,
             opacity: 1,
             x: 0,
             ease: "power1.out",
-            delay: 17.5,
+            delay: 7,
             display: "block",
         });
     }, []);
@@ -50,11 +51,11 @@ function BaseDiscovery() {
             display: "none",
         });
         gsap.to(asideRef.current, {
-            duration: 3,
+            duration: 2,
             opacity: 1,
             y: 0,
             ease: "power1.out",
-            delay: 19,
+            delay: 8,
             display: "block",
         });
     }, []);
@@ -87,7 +88,7 @@ function BaseDiscovery() {
                         y: 50
                     },
                     {
-                        duration: 4,
+                        duration: 2,
                         opacity: 1,
                         y: 0,
                         ease: "power1.out",
@@ -102,15 +103,67 @@ function BaseDiscovery() {
         }, 500);
     };
 
+    const pieRef = useRef(null);
+    useEffect(() => {
+        gsap.set(pieRef.current, {
+            opacity: 0,
+            y: 50,
+            display: "none",
+        });
+        gsap.to(pieRef.current, {
+            duration: 2,
+            opacity: 1,
+            y: 0,
+            ease: "power1.out",
+            delay: 17,
+            display: "block",
+        });
+    }, []);
+
+    const dairyEggRef = useRef(null);
+    useEffect(() => {
+        gsap.set(dairyEggRef.current, {
+            opacity: 0,
+            x: 50,
+            display: "none",
+        });
+        gsap.to(dairyEggRef.current, {
+            duration: 2,
+            opacity: 1,
+            x: 0,
+            ease: "power1.out",
+            delay: 22,
+            display: "block",
+        });
+    }, []);
+
+    const descriptorRef = useRef(null);
+    useEffect(() => {
+        gsap.set(descriptorRef.current, {
+            opacity: 0,
+            x: -50,
+            display: "none",
+        });
+        gsap.to(descriptorRef.current, {
+            duration: 2,
+            opacity: 1,
+            x: 0,
+            ease: "power1.out",
+            delay: 20,
+            display: "block",
+        });
+    }, []);
+
     return (
         <>
             <main className={styles.main}>
                 <div ref={thesisRef} className={`${styles.dataRow} ${styles.dataElement}`}>
                     <TypeAnimation className={styles.storyText} sequence={[
-                        3250,
+                        1500,
                         'The question I have decided to explore is: What effect do things such as sugar, diet composition, & daily amounts of all of these things have on global obesity rates? Moreover, how pronounced are the effects of each?',
                     ]}
                     cursor={false}
+                    speed={75}
                     />
                 </div>
                 <div className={styles.dataRow}>
@@ -119,18 +172,20 @@ function BaseDiscovery() {
                     </div>
                     <div ref={asideRef} className={`${styles.otherMedia} ${styles.dataElement}`}>
                         <TypeAnimation className={styles.storyText} sequence={[
-                            19050,
+                            7500,
                             'I decided to start by gathering data on sugar consumption and obesity rates in various countries.',
                         ]}
                         cursor={false}
+                        speed={75}
                         />
                         <br/><br/>
                         <TypeAnimation className={styles.storyText} sequence={[
-                            26500,
+                            10000,
                             ' What is displayed in the resulting graph is the sugar consumption and obesity rates of the top 10 most populous countries in the world.',
                             handleComplete,
                         ]}
                         cursor={false}
+                        speed={75}
                         />
                     </div>
                 </div>
@@ -143,9 +198,11 @@ function BaseDiscovery() {
                         </div>
                     </div>
                 )}
-                {/*}
+                <div ref={pieRef} className={`${styles.dataRow} ${styles.dataElement}`}>
+                    <CalorieComodityChart></CalorieComodityChart>
+                </div>
                 <div className={`${styles.dataRow} ${styles.responsiveCell}`}>
-                    <div className={`${styles.dataElement} ${styles.graphDescriptor}`}>
+                    <div ref={descriptorRef} className={`${styles.dataElement} ${styles.graphDescriptor}`}>
                         {showDescriptor && (
                             <TypeAnimation 
                             className={styles.descriptorText} 
@@ -159,10 +216,10 @@ function BaseDiscovery() {
                             />
                         )}
                     </div>
-                    <div className={styles.dataElement}>
+                    <div ref={dairyEggRef} className={styles.dataElement}>
                         <DairyEggsTable></DairyEggsTable>
                     </div>
-                </div>*/}
+                </div>
             </main>
             <Popup 
                 isOpen={isPopupOpen} 

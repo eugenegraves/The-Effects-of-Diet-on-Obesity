@@ -17,7 +17,7 @@ function Welcome() {
     });
 
     gsap.to(titleRef.current, {
-      duration: 4,
+      duration: 2,
       opacity: 1,
       ease: "power1.out",
       delay: 0.5,
@@ -29,13 +29,15 @@ function Welcome() {
   useEffect(() => {
     gsap.set(introContainerRef.current, {
       opacity: 0,
+      y: 50
     });
 
     gsap.to(introContainerRef.current, {
-      duration: 4,
+      duration: 2,
       opacity: 1,
+      y: 0,
       ease: "power1.out",
-      delay: 4.5,
+      delay: 2.5,
     });
   }, []);
 
@@ -114,11 +116,6 @@ function Welcome() {
         </h2>
         <h2>With that being said, let us begin...</h2>
         <form className={styles.nameSubmission}>
-          <input
-            className={styles.nameInput}
-            type="text"
-            placeholder="Enter your name"
-          />
           <button ref={startRef} className={styles.startButton} onClick={handleWarpClick} disabled={isWarping}>
             I&apos;m Ready
           </button>

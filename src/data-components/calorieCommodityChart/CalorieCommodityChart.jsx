@@ -516,7 +516,76 @@ const CalorieComodityChart = () => {
         },
     };
 
+    const color = ['#FFD700', '#FFA500', '#FF6347', '#FF4500', '#8B0000'];
 
+    const CustomTooltip = ({ active, payload }) => {
+        if (active && payload && payload.length) {
+            return (
+                <div className={styles.customTooltip}>
+                    <p className={styles.label}>{`${payload[0].name}: ${payload[0].value} kcal`}</p>
+                </div>
+            );
+        }
+        return null;
+    };
+
+    return (
+        <div className={styles.pieChartContainer}>
+            <div className={styles.chartHeader}>
+                <h3 className={styles.chartTitle}>
+                    Caloric Intake by Food Group - {currentCountry}
+                </h3>
+                <select 
+                    id="countrySelect"
+                    value={currentCountry}
+                    onChange={(e) => setCurrentCountry(e.target.value)}
+                    className={styles.selector}
+                >
+                    {countries.map(country => (
+                        <option key={country} value={country}>
+                            {country}
+                        </option>
+                    ))}
+                </select>
+                <select 
+                    value={currentYear}
+                    onChange={(e) => setSelectedYear(e.target.value)}
+                    className={styles.yearSelector}
+                >
+                    {years.map(year => (
+                        <option key={year} value={year}>
+                            {year}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            
+            <ResponsiveContainer width="100%" height={400}>
+                <PieChart>
+                    <Pie
+                        data={data[currentCountry][currentYear]}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        outerRadius={150}
+                        fill="#8884d8"
+                        dataKey="value"
+                        label={({ name, percent }) => 
+                            `${name} ${(percent * 100).toFixed(0)}%`
+                        }
+                    >
+                        {data[currentCountry][currentYear].map((entry, index) => (
+                            <Cell 
+                                key={`cell-${index}`} 
+                                fill={color[index % color.length]}
+                            />
+                        ))}
+                    </Pie>
+                    <Tooltip content={<CustomTooltip />} />
+                </PieChart>
+            </ResponsiveContainer>
+        </div>
+    );
 };
 
 export default CalorieComodityChart;
